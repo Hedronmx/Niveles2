@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Tiles/platformPack_tile001.png" type="Texture" id=1]
 [ext_resource path="res://Tiles/platformPack_tile013.png" type="Texture" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://Puerta Rompible.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Picos.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Switch.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Meta.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Bebas Neue Pro Bold.otf" type="DynamicFontData" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -20,13 +22,13 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
+[sub_resource type="ConvexPolygonShape2D" id=11]
+points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
-
-[sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
@@ -90,16 +92,6 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
-3/name = "platformPack_tile059.png 3"
-3/texture = ExtResource( 3 )
-3/tex_offset = Vector2( 0, 0 )
-3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 0, 0, 64, 64 )
-3/tile_mode = 0
-3/occluder_offset = Vector2( 0, 0 )
-3/navigation_offset = Vector2( 0, 0 )
-3/shapes = [  ]
-3/z_index = 0
 4/name = "platformPack_tile043.png 4"
 4/texture = ExtResource( 4 )
 4/tex_offset = Vector2( 0, 0 )
@@ -116,22 +108,6 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 4/z_index = 0
-5/name = "platformPack_tile059.png 5"
-5/texture = ExtResource( 3 )
-5/tex_offset = Vector2( 0, 0 )
-5/modulate = Color( 1, 1, 1, 1 )
-5/region = Rect2( 0, 0, 64, 64 )
-5/tile_mode = 0
-5/occluder_offset = Vector2( 0, 0 )
-5/navigation_offset = Vector2( 0, 0 )
-5/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 5 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-5/z_index = 0
 6/name = "platformPack_tile029.png 6"
 6/texture = ExtResource( 5 )
 6/tex_offset = Vector2( 0, 0 )
@@ -196,6 +172,37 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 9/z_index = 0
+10/name = "Locked"
+10/texture = ExtResource( 3 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 0, 0, 64, 64 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 11 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+10/z_index = 0
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.211765, 0.282353, 0.294118, 1 )
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color( 0, 0, 0, 0.278431 )
+shadow_size = 16
+shadow_offset = Vector2( 0, 5 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 110
+use_filter = true
+font_data = ExtResource( 15 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -204,7 +211,11 @@ tile_set = SubResource( 10 )
 collision_layer = 64
 collision_mask = 26
 format = 1
-tile_data = PoolIntArray( -1, 1073741826, 0, -65536, 1073741826, 0, -65535, 1073741826, 0, -65534, 1073741826, 0, -65533, 1073741826, 0, -65532, 1073741826, 0, -65531, 1073741826, 0, -65530, 1073741826, 0, -65529, 1073741826, 0, -65528, 1073741826, 0, -65527, 1073741826, 0, -65526, 1073741826, 0, -65525, 1073741826, 0, -65524, 1073741826, 0, -65523, 1073741826, 0, -65522, 1073741826, 0, -65521, 1073741826, 0, -65520, 1073741826, 0, 65535, 1073741826, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 13, 3, 0, 16, 1073741826, 0, 131071, 1073741826, 0, 65540, 2, 0, 65541, 2, 0, 65542, 2, 0, 65549, 3, 0, 65552, 1073741826, 0, 196607, 1073741826, 0, 131076, 2, 0, 131077, 2, 0, 131078, 2, 0, 131085, 3, 0, 131088, 1073741826, 0, 262143, 1073741826, 0, 196612, 2, 0, 196613, 2, 0, 196614, 2, 0, 196621, 3, 0, 196624, 1073741826, 0, 327679, 1073741826, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262157, 3, 0, 262160, 1073741826, 0, 393215, 1073741826, 0, 327684, 2, 0, 327685, 2, 0, 327686, 2, 0, 327691, 2, 0, 327692, 2, 0, 327693, 2, 0, 327696, 1073741826, 0, 458751, 1073741826, 0, 393220, 2, 0, 393221, 2, 0, 393222, 2, 0, 393227, 2, 0, 393228, 2, 0, 393229, 2, 0, 393232, 1073741826, 0, 524287, 1073741826, 0, 458763, 2, 0, 458764, 2, 0, 458765, 2, 0, 458767, 7, 0, 458768, 1073741826, 0, 589823, 1073741826, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 1073741826, 0 )
+tile_data = PoolIntArray( -1, 1073741826, 0, -65536, 1073741826, 0, -65535, 1073741826, 0, -65534, 1073741826, 0, -65533, 1073741826, 0, -65532, 1073741826, 0, -65531, 1073741826, 0, -65530, 1073741826, 0, -65529, 1073741826, 0, -65528, 1073741826, 0, -65527, 1073741826, 0, -65526, 1073741826, 0, -65525, 1073741826, 0, -65524, 1073741826, 0, -65523, 1073741826, 0, -65522, 1073741826, 0, -65521, 1073741826, 0, -65520, 1073741826, 0, 65535, 1073741826, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 13, 10, 0, 16, 1073741826, 0, 131071, 1073741826, 0, 65540, 2, 0, 65541, 2, 0, 65542, 2, 0, 65549, 10, 0, 65552, 1073741826, 0, 196607, 1073741826, 0, 131076, 2, 0, 131077, 2, 0, 131078, 2, 0, 131085, 10, 0, 131088, 1073741826, 0, 262143, 1073741826, 0, 196612, 2, 0, 196613, 2, 0, 196614, 2, 0, 196621, 10, 0, 196624, 1073741826, 0, 327679, 1073741826, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262157, 10, 0, 262160, 1073741826, 0, 393215, 1073741826, 0, 327684, 2, 0, 327685, 2, 0, 327686, 2, 0, 327691, 2, 0, 327692, 2, 0, 327693, 2, 0, 327696, 1073741826, 0, 458751, 1073741826, 0, 393220, 2, 0, 393221, 2, 0, 393222, 2, 0, 393227, 2, 0, 393228, 2, 0, 393229, 2, 0, 393232, 1073741826, 0, 524287, 1073741826, 0, 458763, 2, 0, 458764, 2, 0, 458765, 2, 0, 458768, 1073741826, 0, 589823, 1073741826, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 1073741826, 0 )
+
+[node name="Switch" parent="TileMap" instance=ExtResource( 13 )]
+position = Vector2( 479.815, 99.7384 )
+rotation = 1.5708
 
 [node name="Character" parent="TileMap" instance=ExtResource( 9 )]
 position = Vector2( 71, 371 )
@@ -217,12 +228,69 @@ rotation = 3.14159
 position = Vector2( 98.3219, 31.958 )
 rotation = 3.14159
 
+[node name="Picos3" parent="TileMap" instance=ExtResource( 12 )]
+position = Vector2( 164.638, 31.958 )
+rotation = 3.14159
+
+[node name="Picos4" parent="TileMap" instance=ExtResource( 12 )]
+position = Vector2( 225.691, 30.9054 )
+rotation = 3.14159
+
+[node name="Picos5" parent="TileMap" instance=ExtResource( 12 )]
+position = Vector2( 479.375, 30.9054 )
+rotation = 3.14159
+
+[node name="Picos6" parent="TileMap" instance=ExtResource( 12 )]
+position = Vector2( 543.586, 30.9054 )
+rotation = 3.14159
+
+[node name="Picos7" parent="TileMap" instance=ExtResource( 12 )]
+position = Vector2( 607.797, 30.9054 )
+rotation = 3.14159
+
+[node name="Picos8" parent="TileMap" instance=ExtResource( 12 )]
+position = Vector2( 672.007, 30.9054 )
+rotation = 3.14159
+
+[node name="Picos9" parent="TileMap" instance=ExtResource( 12 )]
+position = Vector2( 735.165, 30.9054 )
+rotation = 3.14159
+
+[node name="Picos10" parent="TileMap" instance=ExtResource( 12 )]
+position = Vector2( 799.376, 30.9054 )
+rotation = 3.14159
+
+[node name="Meta" parent="TileMap" instance=ExtResource( 14 )]
+position = Vector2( 990.528, 478.948 )
+
+[node name="Panel" type="Panel" parent="TileMap/Meta"]
+visible = false
+margin_left = -683.424
+margin_top = -345.896
+margin_right = -256.424
+margin_bottom = -105.896
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TileMap/Meta/Panel"]
+margin_left = 66.3159
+margin_top = 63.158
+margin_right = 364.316
+margin_bottom = 174.158
+custom_fonts/font = SubResource( 13 )
+text = "GANASTE"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Torreta" parent="." instance=ExtResource( 10 )]
 position = Vector2( 628, 476 )
+flip = true
 
 [node name="Puerta Rompible" parent="." instance=ExtResource( 11 )]
 position = Vector2( 479.594, 479.61 )
-
-[node name="Switch" parent="." instance=ExtResource( 13 )]
-position = Vector2( 479.815, 99.7384 )
-rotation = 1.5708

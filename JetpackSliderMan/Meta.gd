@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -16,8 +16,8 @@ func _ready():
 #	pass
 
 
-func _on_Area2D_area_entered(area):
-	print("entro")
-	$AnimatedSprite.play("OFF")
-	get_parent().tile_set.remove_tile(10)
+func _on_Area2D_body_entered(body):
+	get_child(2).visible = true
+	get_tree().paused = true
+	print("Bye")
 	pass # Replace with function body.
