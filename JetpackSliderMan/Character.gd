@@ -9,6 +9,8 @@ onready var bala = load("res://Bullet.tscn")
 var disparo = false
 var direccion = Vector2.RIGHT
 var velocity = Vector2.ZERO
+export var fuel = 100;
+var empty = false;
 
 func get_input():
 	velocity.x = 0
@@ -42,7 +44,14 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 	if Input.is_action_pressed("jump"):
+		if fuel > 0:
 			velocity.y = jump_speed
+			fuel -= 1.5
+			get_node("ProgressBar").value = fuel
+	else :
+		if fuel < 100:
+			fuel += 1
+			get_node("ProgressBar").value = fuel
 	if !is_on_floor() and !slide:
 		$Sprite.play("Jump")
 	if Input.is_action_just_pressed("slide"):

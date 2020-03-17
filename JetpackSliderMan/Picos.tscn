@@ -30,5 +30,8 @@ position = Vector2( -0.463287, 3.24304 )
 shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Death Timer" type="Timer" parent="."]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Death Timer" to="." method="_on_Death_Timer_timeout"]

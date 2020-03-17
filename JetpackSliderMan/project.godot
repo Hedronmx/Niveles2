@@ -16,7 +16,6 @@ _global_script_class_icons={
 [application]
 
 config/name="JetpackSliderMan"
-run/main_scene="res://tileset.tscn"
 config/icon="res://icon.png"
 
 [input]

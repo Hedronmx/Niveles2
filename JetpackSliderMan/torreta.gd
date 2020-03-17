@@ -1,6 +1,6 @@
 extends Node2D
 
-var vida = 2
+export var vida = 2
 var disparo = false
 onready var bala = load("res://BalaMala.tscn")
 export var flip = false;

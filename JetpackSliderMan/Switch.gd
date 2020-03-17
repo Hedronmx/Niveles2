@@ -5,6 +5,8 @@ extends StaticBody2D
 # var a = 2
 # var b = "text"
 
+export var tile_to_remove = 10
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,5 +21,5 @@ func _ready():
 func _on_Area2D_area_entered(area):
 	print("entro")
 	$AnimatedSprite.play("OFF")
-	get_parent().tile_set.remove_tile(10)
+	get_parent().tile_set.remove_tile(tile_to_remove)
 	pass # Replace with function body.
