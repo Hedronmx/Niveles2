@@ -10,9 +10,10 @@ func _process(delta):
 
 func _on_Area2D_body_entered(body):
 	if "Character" in body.name:
-		body.queue_free()
-		get_tree().reload_current_scene()
-	queue_free()
+		body.die(self)
+
+	if body.get("slide") == null:
+		queue_free()
 	pass # Replace with function body.
 
 

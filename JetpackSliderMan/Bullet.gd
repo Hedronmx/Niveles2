@@ -17,10 +17,15 @@ func _process(delta):
 
 
 func _on_CollisionShape2D_body_entered(body):
-	queue_free()
+	if "Hitbox" in body.name:
+		pass
+	else:
+		queue_free()
 	pass # Replace with function body.
 
-
 func _on_CollisionShape2D_area_entered(area):
-	queue_free()
+	if "Hitbox" in area.name:
+		pass
+	else:
+		queue_free()
 	pass # Replace with function body.

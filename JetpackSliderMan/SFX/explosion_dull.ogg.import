@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/explosion_dull.ogg-1f9cc50f2b7b605c75762102a304d69e.oggstr"
+
+[deps]
+
+source_file="res://SFX/explosion_dull.ogg"
+dest_files=[ "res://.import/explosion_dull.ogg-1f9cc50f2b7b605c75762102a304d69e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
