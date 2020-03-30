@@ -10,6 +10,8 @@ extends Camera2D
 func _ready():
 	var rect = find_node_by_name(get_tree().get_root(), "TileMap").get_used_rect()
 	var cellSize = find_node_by_name(get_tree().get_root(), "TileMap").cell_size
+	print (rect)
+	print (cellSize)
 	limit_left = rect.position.x * cellSize.x
 	limit_right = rect.end.x * cellSize.x
 	limit_top = rect.position.y * cellSize.y

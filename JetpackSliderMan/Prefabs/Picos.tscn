@@ -4,12 +4,12 @@
 [ext_resource path="res://Picos.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32.1778, 10.8809 )
+extents = Vector2( 31.5588, 16.8355 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32.1013, 6.5924 )
+extents = Vector2( 31.3927, 6.5924 )
 
-[node name="Picos" type="StaticBody2D"]
+[node name="Picos" type="KinematicBody2D"]
 position = Vector2( 0, 2 )
 scale = Vector2( 1, 0.94 )
 collision_layer = 32
@@ -17,13 +17,16 @@ collision_mask = 24
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 21.3114 )
+position = Vector2( 0.5, -16.7848 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.00299072, -0.235229 )
 texture = ExtResource( 1 )
+offset = Vector2( -0.00299072, -31.6206 )
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 0.5, -31.8558 )
 collision_layer = 32
 collision_mask = 16
 

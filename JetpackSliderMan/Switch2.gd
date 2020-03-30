@@ -7,7 +7,7 @@ var tileset = null
 var activado = false;
 
 func _ready():
-	tileset = find_node_by_name(get_tree().get_root(), "TileMap")
+	tileset = find_node_by_name(get_parent(), "TileMap")
 	pass # Replace with function body.
 
 
@@ -27,11 +27,11 @@ func find_node_by_name(root, name):
 
 
 func _on_Area2D_area_entered(area):
-	if "Bullet" in area.name and !activado:
+	if "Bullet" in area.name and !activado or "Bala_Mala" in area.name and !activado or "Lazer" in area.name and !activado:
 		$On.play(0)
 		$AnimatedSprite.play("OFF")
-		tileset.tile_set.tile_set_texture(tile_to_appear,texture)
-		tileset.tile_set.tile_set_shape(tile_to_appear, 9000, colision)
+		tileset.tile_set.call_deferred("tile_set_texture", tile_to_appear, texture)
+		tileset.tile_set.call_deferred("tile_set_shape", tile_to_appear,9000, colision)
 		activado = true
 	
 	pass # Replace with function body.

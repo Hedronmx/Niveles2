@@ -20,12 +20,12 @@ func _on_CollisionShape2D_body_entered(body):
 	if "Hitbox" in body.name:
 		pass
 	else:
-		queue_free()
+		call_deferred('free')
 	pass # Replace with function body.
 
 func _on_CollisionShape2D_area_entered(area):
 	if "Hitbox" in area.name:
 		pass
 	else:
-		queue_free()
+		call_deferred('free')
 	pass # Replace with function body.

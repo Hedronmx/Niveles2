@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Prefabs/MapBuilder.tscn" type="PackedScene" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 13, 0, 1, 13, 0, 2, 13, 0, 3, 13, 0, 65536, 13, 0, 65537, 13, 0, 65538, 13, 0, 65539, 13, 0, 131072, 13, 0, 131073, 13, 0, 131074, 13, 0, 131075, 13, 0, 196608, 13, 0, 196609, 13, 0, 196610, 13, 0, 196611, 13, 0 )

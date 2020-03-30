@@ -1,5 +1,6 @@
 extends Node2D
-
+var dead = false
+export var respawnTime = 3
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -17,7 +18,15 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	if "Character" in body.name:
+	if "Character" in body.name and !dead:
 		body.refill()
-		queue_free()
+		visible = false
+		dead = true
+		$Respawn.start(respawnTime)
+	pass # Replace with function body.
+
+
+func _on_Respawn_timeout():
+	dead = false
+	visible = true
 	pass # Replace with function body.

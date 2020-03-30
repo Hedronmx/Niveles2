@@ -18,6 +18,12 @@ func _ready():
 
 func _on_Area2D_area_entered(area):
 	if "Bullet" in area.name:
-		area.queue_free()
-		queue_free()
+		$Timer.start(0.4)
+		$Sprite.play("Death")
+		$Death.play(0)
+	pass # Replace with function body.
+
+
+func _on_Timer_timeout():
+	queue_free()
 	pass # Replace with function body.

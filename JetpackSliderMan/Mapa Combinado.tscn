@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Prefabs/MapBuilder.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/Character.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tomas/JetpackSimple.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Tomas/SlideSimple.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Memodulos/LongPlain.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/Torreta.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Memodulos/Montana.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Memodulos/Filler.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/Jetpack Refill.tscn" type="PackedScene" id=9]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 65535, 1073741826, 0, 0, 1073741826, 0, 1, 1073741826, 0, 2, 1073741826, 0, 3, 1073741826, 0, 4, 1073741826, 0, 5, 13, 0, 6, 13, 0, 7, 13, 0, 8, 13, 0, 9, 13, 0, 10, 13, 0, 11, 13, 0, 12, 13, 0, 13, 13, 0, 14, 13, 0, 15, 13, 0, 16, 13, 0, 17, 13, 0, 18, 13, 0, 19, 13, 0, 20, 13, 0, 21, 1073741826, 0, 22, 1073741826, 0, 23, 1073741826, 0, 24, 1073741826, 0, 25, 1073741826, 0, 26, 1073741826, 0, 131071, 13, 0, 196607, 13, 0, 262143, 13, 0, 327679, 13, 0, 393215, 13, 0, 458751, 13, 0, 524287, 13, 0, 589823, 13, 0, 524288, 13, 0, 524289, 13, 0, 524290, 13, 0, 524291, 13, 0, 524292, 13, 0, 524293, 13, 0, 524294, 13, 0, 524295, 13, 0, 524296, 13, 0, 524297, 13, 0, 524298, 13, 0, 524299, 13, 0, 524300, 13, 0, 524301, 13, 0, 524302, 13, 0, 524303, 13, 0, 524304, 13, 0, 524305, 13, 0, 524306, 13, 0, 524307, 13, 0, 524308, 13, 0, 524309, 13, 0, 524310, 13, 0, 524311, 13, 0, 524312, 13, 0, 524313, 13, 0, 524314, 13, 0, 524315, 13, 0, 524316, 13, 0, 524317, 13, 0, 524318, 13, 0, 524319, 13, 0, 524320, 13, 0 )
+
+[node name="SlideSimple" parent="TileMap" instance=ExtResource( 4 )]
+position = Vector2( 960, 0 )
+
+[node name="Node2D" parent="TileMap" instance=ExtResource( 5 )]
+position = Vector2( 1344, 512 )
+
+[node name="Node2D2" parent="TileMap" instance=ExtResource( 7 )]
+position = Vector2( 2112, 0 )
+
+[node name="Character" parent="." instance=ExtResource( 2 )]
+position = Vector2( 96, 464 )
+
+[node name="JetpackSimple" parent="." instance=ExtResource( 3 )]
+position = Vector2( 320, 0 )
+
+[node name="Torreta" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1920, 480 )
+scale = Vector2( -0.7, 0.7 )
+
+[node name="Node2D" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2112, 320 )
+
+[node name="Node2D2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1216, 64 )
+
+[node name="Node2D3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1472, 64 )
+
+[node name="Node2D4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1472, 64 )
+
+[node name="Jetpack Refill" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1920, 144 )

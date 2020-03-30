@@ -13,7 +13,7 @@ func _on_Area2D_body_entered(body):
 		body.die(self)
 
 	if body.get("slide") == null:
-		queue_free()
+		call_deferred('free')
 	pass # Replace with function body.
 
 

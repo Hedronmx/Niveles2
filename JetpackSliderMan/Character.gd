@@ -14,8 +14,8 @@ var empty = false;
 
 func _ready():
 	get_tree().paused = false
-	$Jetpack.play()
 	$Jetpack.stream_paused = true
+	$Jetpack.play()
 
 func get_input():
 	velocity.x = 0
@@ -72,6 +72,7 @@ func _physics_process(delta):
 
 func die (body):
 	if !slide:
+		$Jetpack.stream_paused = true
 		$Death.play(0)
 		$Sprite.play("Death")
 		set_physics_process(false)
@@ -81,7 +82,6 @@ func die (body):
 			body.queue_free()
 		$DeathTimer.start(1)
 		$ProgressBar.visible = false
-
 
 func restart ():
 	get_tree().reload_current_scene()
@@ -93,7 +93,7 @@ func _on_Timer_timeout():
 	pass # Replace with function body.
 
 func ganar ():
-	get_node("Panel").visible = true
+	$CanvasLayer/Panel.visible = true
 
 func refill ():
 	$Refill.play(0)

@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Tiles/platformPack_tile020.png" type="Texture" id=1]
+[ext_resource path="res://Puerta Rompible.gd" type="Script" id=2]
+[ext_resource path="res://Torreta/tank_explosion4.png" type="Texture" id=3]
+[ext_resource path="res://Torreta/tank_explosion2.png" type="Texture" id=4]
+[ext_resource path="res://Torreta/tank_explosion3.png" type="Texture" id=5]
+[ext_resource path="res://SFX/8bit_bomb_explosion.wav" type="AudioStream" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 3 ), null ],
+"loop": false,
+"name": "Death",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 33.0956 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32.4938, 32.7551 )
+
+[node name="Puerta Rompible" type="StaticBody2D"]
+collision_mask = 8
+script = ExtResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 0
+
+[node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -4.0
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -19,45 +19,7 @@
 [ext_resource path="res://SFX/8bit_bomb_explosion.wav" type="AudioStream" id=17]
 [ext_resource path="res://SFX/Picked Coin Echo.wav" type="AudioStream" id=18]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "Duck",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "Run",
-"speed": 6.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "Jump",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 13 ), null ],
-"loop": false,
-"name": "Death",
-"speed": 12.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 39, 33 )
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 42.0187, 30.0466 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 27
-font_data = ExtResource( 8 )
-
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.211765, 0.282353, 0.294118, 1 )
 corner_radius_top_left = 12
 corner_radius_top_right = 12
@@ -67,14 +29,52 @@ shadow_color = Color( 0, 0, 0, 0.278431 )
 shadow_size = 16
 shadow_offset = Vector2( 0, 5 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=2]
 size = 109
 use_filter = true
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=3]
 size = 40
 use_filter = true
+font_data = ExtResource( 8 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 13 ), null ],
+"loop": false,
+"name": "Death",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Duck",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Run",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 39, 33 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 42.0187, 30.0466 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 27
 font_data = ExtResource( 8 )
 
 [node name="Character" type="KinematicBody2D"]
@@ -82,15 +82,59 @@ collision_layer = 16
 collision_mask = 231
 script = ExtResource( 1 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+visible = false
+margin_left = 300.0
+margin_top = 200.0
+margin_right = 727.0
+margin_bottom = 440.0
+rect_pivot_offset = Vector2( 213.5, 120 )
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+margin_left = 66.3159
+margin_top = 41.308
+margin_right = 364.316
+margin_bottom = 152.308
+custom_fonts/font = SubResource( 2 )
+text = "GANASTE"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/Panel"]
+margin_left = 50.8
+margin_top = 109.05
+margin_right = 381.8
+margin_bottom = 220.05
+custom_fonts/font = SubResource( 3 )
+text = "CARGANDO SIGUIENTE NIVEL"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( -1, 0 )
-frames = SubResource( 1 )
+frames = SubResource( 4 )
 animation = "Idle"
 offset = Vector2( 1, 0 )
 
 [node name="Character" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 15 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
@@ -101,7 +145,7 @@ wait_time = 0.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2( 0.29361, 10.4312 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="DeathTimer" type="Timer" parent="."]
 
@@ -119,7 +163,7 @@ margin_bottom = 49.0
 rect_rotation = -90.0
 custom_styles/fg = ExtResource( 9 )
 custom_styles/bg = ExtResource( 10 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 value = 100.0
@@ -129,64 +173,23 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="Panel" type="Panel" parent="."]
-visible = false
-margin_left = -213.5
-margin_top = -120.0
-margin_right = 213.5
-margin_bottom = 120.0
-rect_pivot_offset = Vector2( 213.5, 120 )
-custom_styles/panel = SubResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false,
-"_editor_description_": ""
-}
-
-[node name="Label" type="Label" parent="Panel"]
-margin_left = 66.3159
-margin_top = 41.308
-margin_right = 364.316
-margin_bottom = 152.308
-custom_fonts/font = SubResource( 6 )
-text = "GANASTE"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="Label2" type="Label" parent="Panel"]
-margin_left = 50.8
-margin_top = 109.05
-margin_right = 381.8
-margin_bottom = 220.05
-custom_fonts/font = SubResource( 7 )
-text = "CARGANDO SIGUIENTE NIVEL"
-align = 1
-valign = 1
-uppercase = true
-__meta__ = {
-"_editor_description_": ""
-}
-
 [node name="Jetpack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
-volume_db = -4.0
+volume_db = -13.0
+pitch_scale = 1.25
 
 [node name="Shot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
-volume_db = -4.0
-pitch_scale = 0.8
+volume_db = -18.0
+pitch_scale = 0.5
 
 [node name="Death" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
-volume_db = -3.0
+volume_db = -5.0
 
 [node name="Refill" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
-volume_db = 6.0
+volume_db = -4.0
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Bala" to="." method="_on_Timer_Bala_timeout"]
-[connection signal="area_shape_entered" from="Hitbox" to="." method="_on_Area2D_area_shape_entered"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]

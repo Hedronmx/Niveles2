@@ -14,7 +14,6 @@ func _process(delta):
 func _on_Area2D_body_entered(body):
 	if "Character" in body.name:
 		body.die(self)
-
 	if body.get("slide") == null:
 		queue_free()
 	pass # Replace with function body.

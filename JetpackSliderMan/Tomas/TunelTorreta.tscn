@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Prefabs/MapBuilder.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/Picos.tscn" type="PackedScene" id=3]
+
+[node name="TunelTorreta" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 262144, 1610612738, 0, 262145, 1610612738, 0, 262146, 1610612738, 0, 262147, 1610612738, 0, 262148, 1610612738, 0, 262149, 1610612738, 0, 524288, 536870914, 0, 524289, 536870914, 0, 524290, 536870914, 0, 524291, 536870914, 0, 524292, 536870914, 0, 524293, 536870914, 0 )
+
+[node name="Picos" parent="." instance=ExtResource( 3 )]
+position = Vector2( 24, 320 )
+rotation = -3.14159
+scale = Vector2( 0.7, 0.658 )
+
+[node name="Picos2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 72, 320 )
+rotation = -3.14159
+scale = Vector2( 0.7, 0.658 )
+
+[node name="Picos3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 120, 320 )
+rotation = -3.14159
+scale = Vector2( 0.7, 0.658 )
+
+[node name="Picos4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 168, 320 )
+rotation = -3.14159
+scale = Vector2( 0.7, 0.658 )
+
+[node name="Picos5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 216, 320 )
+rotation = -3.14159
+scale = Vector2( 0.7, 0.658 )
+
+[node name="Picos6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 264, 320 )
+rotation = -3.14159
+scale = Vector2( 0.7, 0.658 )
+
+[node name="Picos7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 312, 320 )
+rotation = -3.14159
+scale = Vector2( 0.7, 0.658 )
+
+[node name="Picos8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 360, 320 )
+rotation = -3.14159
+scale = Vector2( 0.7, 0.658 )
