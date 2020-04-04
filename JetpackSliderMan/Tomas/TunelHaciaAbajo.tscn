@@ -18,7 +18,7 @@ rotation = 3.14159
 scale = Vector2( 1, 1 )
 
 [node name="Picos2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 224, 288 )
+position = Vector2( 224, 256 )
 rotation = 3.14159
 
 [node name="Picos2" parent="Picos2" instance=ExtResource( 2 )]
